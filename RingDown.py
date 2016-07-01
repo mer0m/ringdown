@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jun 14 14:58:12 2016
-
-@author: sicav
-"""
-
 import matplotlib.pyplot as plt
 import numpy as np
 import csv, glob
