@@ -11,7 +11,8 @@ for f in list_files:
     data_iter = csv.reader(open(f, 'r'), delimiter = ',', quotechar = '"')
     for i in range(2):
         data_iter.next()
-    temp_data = [value for value in data_iter]
+    temp_data = [value for value in data_iter]      #if ends with a number
+    #temp_data = [value[:-1] for value in data_iter]#if ends with a comma
     data.extend(temp_data)
 
 data = np.asarray(data, dtype = float)
