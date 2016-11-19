@@ -3,7 +3,7 @@ import numpy as np
 import csv, glob
 from scipy.optimize import curve_fit
 
-list_files = (glob.glob('WA*5.CSV'))
+list_files = (glob.glob('WA*1.CSV'))
 
 data = []
 
@@ -11,7 +11,7 @@ for f in list_files:
     data_iter = csv.reader(open(f, 'r'), delimiter = ',', quotechar = '"')
     for i in range(2):
         data_iter.next()
-    temp_data = [value[:-1] for value in data_iter]
+    temp_data = [value for value in data_iter]
     data.extend(temp_data)
 
 data = np.asarray(data, dtype = float)
