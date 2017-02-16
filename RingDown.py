@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import csv, glob
+import csv, glob, sys
 from scipy.optimize import curve_fit
 
-list_files = (glob.glob('WA*1.CSV'))
+list_files = (glob.glob(sys.argv[1]))
 
 data = []
 
