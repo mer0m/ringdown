@@ -8,12 +8,12 @@ list_files = (glob.glob(sys.argv[1]))
 data = []
 
 for f in list_files:
-    data_iter = csv.reader(open(f, 'r'), delimiter = ',', quotechar = '"')
-    for i in range(2):
-        data_iter.next()
-    #temp_data = [value for value in data_iter]      #if ends with a number
-    temp_data = [value[:-1] for value in data_iter]#if ends with a comma
-    data.extend(temp_data)
+	data_iter = csv.reader(open(f, 'r'), delimiter = ',', quotechar = '"')
+	for i in range(2):
+		data_iter.next()
+	#temp_data = [value for value in data_iter]	  #if ends with a number
+	temp_data = [value[:-1] for value in data_iter]#if ends with a comma
+	data.extend(temp_data)
 
 data = np.asarray(data, dtype = float)
 
@@ -25,7 +25,7 @@ plt.clf()
 plt.plot(data[data[:,0]>=0,0], data[data[:,0]>=0,1], label ='mes')
 
 def func(t, tau, A, w , a, b):
-    return A * np.exp(-t/tau) * np.sin((w+a*t)*t) + b
+	return A * np.exp(-t/tau) * np.sin((w+a*t)*t) + b
 
 popt, pcov = curve_fit(func, data[data[:,0]>=0,0], data[data[:,0]>=0,1], p0 = [1e-5, 1e-2, 1e5, 1e10, 1e-4], maxfev=10000)
 yfit = func(data[data[:,0]>=0,0], *popt)
